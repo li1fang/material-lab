@@ -6,6 +6,8 @@ Drive a maintenance crawler into a brick wall. Reverse, swap the same span for i
 
 [Watch the 8-second comparison in full resolution (MP4)](https://github.com/li1fang/material-lab/raw/refs/heads/main/media/brick-iron.mp4) · [Try the Modular Campus sample from source](Package/README.md#modular-campus) · [Download the v0.3.0 wood, ceramic and ribbon workbenches](https://github.com/li1fang/material-lab/releases/tag/v0.3.0)
 
+**Play Modular Campus v0.4.0.** Download the Windows ZIP, extract it and run `AI-RTS-Spectator.exe`. Press **V** for the first pass. The Unity package includes **Modular Campus** under Samples. [Windows and Unity downloads](https://github.com/li1fang/material-lab/releases/tag/v0.4.0)
+
 ### What stays connected?
 
 **Boundary wall.** The recorded stroke dislodged 42 brick pieces from the selected span. The same stroke against iron released one end. The other end remained attached after the crawler backed away, including on replay. Try a different connection by clicking the shared corner post. In the brick test, four pieces came away on each adjoining side and the distant control span lost none. [Compare the end states](media/boundary-after.jpg) · [Original fence screenshot](media/campus-fence.jpg) · [Player measurements](evidence/modular-campus.json)
@@ -49,6 +51,8 @@ These three procedural specimens have deliberately narrow material models. The r
 **先看同一辆车退回来以后。** 同一段围墙、同一条车路，换一种材料，留下的损伤就不一样。砖墙掉了 42 块，缺口留在受压的一跨。换成铁栅栏，一端落下，另一端还牵在柱子上。换个位置点共用角柱，两侧砖墙各掉 4 块，远处的一跨保持完整。[砖墙与铁栅栏实录](https://github.com/li1fang/material-lab/raw/refs/heads/main/media/brick-iron.mp4) · [退车后的并排近照](media/boundary-after.jpg)
 
 **停车楼把支撑关系单独展现出来。** 把 2×3 开间扩成 3×5，用同一组输入，两次都能看到一块楼面先掉，邻跨随后失去支撑。大停车楼最后有两块落下、三块倾斜、十块水平。你可以倒回第一块下落前，亲手重放。楼面的失撑和挂靠由离散连接规则驱动。[停车楼实录](https://github.com/li1fang/material-lab/raw/refs/heads/main/media/parking.mp4) · [同机位前后图](media/parking-before-after.jpg) · [实测数据](evidence/modular-campus.json)
+
+**下载校园试玩 v0.4.0。** 完整解压 Windows ZIP，运行 `AI-RTS-Spectator.exe`，按 **V** 就能压第一面墙。Unity 用户可安装同版 TGZ，在 Samples 中导入 Modular Campus。[Windows 试玩与 Unity 包](https://github.com/li1fang/material-lab/releases/tag/v0.4.0)
 
 **从源码试玩校园。** 导入 Modular Campus，打开 `Campus.unity`。选中一跨按 V，等履带车退回后换铁栅栏，再按一次 V。在停车楼选择「运行连续失撑对照」可以复现视频。围墙长度、柱距、车库行列共用一份可编辑配置，开发者或 AI 都可以改尺寸、构建、重放。现成的 v0.3.0 Windows 下载和 Unity 包包含鲜枝、陶碟、布带三个工作台。[校园构建与操作](Package/README.md#modular-campus) · [v0.3.0 下载](https://github.com/li1fang/material-lab/releases/tag/v0.3.0)
 

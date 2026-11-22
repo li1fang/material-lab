@@ -1,6 +1,6 @@
 {
   "name": "org.materiallab.destruction",
-  "version": "0.4.0-preview.1",
+  "version": "0.4.0",
   "displayName": "Material Destruction",
   "description": "Replayable material experiments and a modular campus sample with brick, rail and parking deck assemblies for URP.",
   "unity": "7000.0",
