@@ -1,0 +1,17 @@
+{
+  "name": "org.materiallab.destruction",
+  "version": "0.3.0",
+  "displayName": "Material Destruction",
+  "description": "A replayable URP workbench for woven tape tearing, green wood bending and glazed rim chipping.",
+  "unity": "7000.0",
+  "license": "MIT",
+  "dependencies": {
+    "com.unity.modules.physics": "1.0.0",
+    "com.unity.modules.jsonserialize": "1.0.0"
+  },
+  "samples": [{
+    "displayName": "Material Workbench",
+    "description": "Grab, tear and release a woven ribbon. Also includes a ceramic impact bench and the original branch bending bench. Uses URP.",
+    "path": "Samples~/BranchLab"
+  }]
+}

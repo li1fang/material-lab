@@ -1,0 +1,17 @@
+{
+    "version": 1,
+    "grips": [
+        {
+            "side": 1,
+            "peakOpening": 0.1392074078321457,
+            "before": 0,
+            "after": 30
+        },
+        {
+            "side": -1,
+            "peakOpening": 0.0811595693230629,
+            "before": 30,
+            "after": 46
+        }
+    ]
+}

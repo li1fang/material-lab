@@ -1,0 +1,7 @@
+{
+  "name": "MaterialDestruction.Commands",
+  "references": ["MaterialDestruction", "Unity.Pipeline.Attributes"],
+  "includePlatforms": ["Editor"],
+  "versionDefines": [{"name":"com.unity.pipeline","expression":"1.0.1","define":"MATERIAL_LAB_PIPELINE"}],
+  "defineConstraints": ["MATERIAL_LAB_PIPELINE"]
+}
