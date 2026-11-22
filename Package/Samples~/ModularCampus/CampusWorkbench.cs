@@ -115,9 +115,12 @@ namespace MaterialDestruction.Campus
             if(age>=0&&age<=205){
                 float phase=age<100?age/100f:age<=115?1:(205-age)/90f;
                 float z=Mathf.Lerp(-3,-.21f,Mathf.SmoothStep(0,1,phase));
-                cart.Place(z);
-                // Roller front is 1.15 units ahead of origin; the intact front face is at -0.115.
-                float penetration=Mathf.Clamp01(z+1.15f+.115f);
+                // The commanded stroke builds pressure while the wall resists the roller.
+                var wall = walls[driveSpan];
+                float contactZ = -(1.15f + (wall.metal ? .04f : .115f));
+                float penetration = Mathf.Clamp01((z - contactZ) / (-.21f - contactZ));
+                float travel = Mathf.Max(0, penetration - .28f) * .23f;
+                cart.Place(Mathf.Min(z, contactZ) + travel);
                 if(penetration>0){
                     ContactDepth=Mathf.Max(ContactDepth,penetration);
                     int step=Mathf.CeilToInt(penetration*10);

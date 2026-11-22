@@ -6,7 +6,7 @@ namespace MaterialDestruction.Campus
 {
     internal sealed class BoundarySpan
     {
-        sealed class Chip{public Transform node;public Vector3 start;public float time=-1;public int course;}
+        sealed class Chip{public Transform node;public Vector3 start;public float time=-1;public int course;public float contactKick;}
         readonly List<Chip> bricks=new List<Chip>();
         readonly List<Mesh> meshes=new List<Mesh>();
         readonly List<Transform> rails=new List<Transform>();
@@ -69,12 +69,12 @@ namespace MaterialDestruction.Campus
             var collider=tr.gameObject.AddComponent<MeshCollider>();collider.sharedMesh=mesh;collider.convex=true;
             bricks.Add(new Chip{node=tr,start=center,course=row});
         }
-        public void Hit(Vector2 p,float k,float time){
+        public void Hit(Vector2 p,float k,float time,float contactKick=0){
             if(metal){Bend=Mathf.Clamp01(Bend+k*.43f);pressureX=p.x;return;}
             foreach(var c in bricks){
                 if(c.time>=0)continue;
                 float d=Vector2.Distance(c.start,p);
-                if(d<.18f+k*.53f){c.time=time;Missing++;}
+                if(d<.18f+k*.53f){c.time=time;c.contactKick=contactKick;Missing++;}
             }
             // Each course can remain on overlapping bricks below, or against an end post.
             foreach(var c in bricks){
@@ -95,7 +95,7 @@ namespace MaterialDestruction.Campus
         }
         public void Contact(float x,float depth,float time){
             if(metal){if(depth>Bend){Bend=Mathf.Clamp01(depth);pressureX=x;}}
-            else Hit(new Vector2(x,.64f),depth*1.9f,time);
+            else Hit(new Vector2(x,.64f),depth*1.9f,time,.085f);
         }
         Vector3 RailPoint(float t,float h){
             float x=(t-.5f)*width;
@@ -118,7 +118,7 @@ namespace MaterialDestruction.Campus
                 float f=Mathf.Clamp01((time-c.time)/(.33f+Mathf.Sqrt(c.start.y)*.30f));float s=Mathf.SmoothStep(0,1,f);
                 c.node.localRotation=Quaternion.Euler(-90*s,(i%5-2)*12*s,0);
                 c.node.localPosition=new Vector3(c.start.x+Mathf.Sin(i*2.39f)*.39f*s,Mathf.Lerp(c.start.y,.122f+.003f*(i%8),f*f),
-                    (.27f+.88f*(i%7)/7f)*s);
+                    Mathf.Lerp(c.contactKick,.27f+.88f*(i%7)/7f,s));
             }
         }
         public void Dispose(){foreach(var mesh in meshes)UnityEngine.Object.Destroy(mesh);}
