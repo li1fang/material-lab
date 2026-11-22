@@ -1,10 +1,12 @@
 # Material Lab · 材料破坏工作台
 
-Drive a maintenance crawler into a brick wall. Reverse, swap the same span for iron, and repeat. The bricks leave a hole. The iron bends down and stays attached to one post. Both runs below use the same vehicle, stroke and camera in the Windows player.
+Watch the front roller as it meets the wall. The crawler pauses against the brickwork, then inches forward as the bricks shift. Swap the same span for iron and the rail bends under the roller. The bricks leave a hole. The iron bends down and stays attached to one post. Both runs below use the same vehicle, stroke and camera in the Windows player.
 
-![Two consecutive runs of the same crawler pressing and reversing, first against brick and then against iron](media/brick-iron.gif)
+![Two consecutive runs of the same crawler pressing and reversing, first against brick and then against iron](media/brick-iron-contact.gif)
 
-[Watch the 8-second comparison in full resolution (MP4)](https://github.com/li1fang/material-lab/raw/refs/heads/main/media/brick-iron.mp4) · [Try the Modular Campus sample from source](Package/README.md#modular-campus) · [Download the v0.3.0 wood, ceramic and ribbon workbenches](https://github.com/li1fang/material-lab/releases/tag/v0.3.0)
+[Watch the 8-second comparison in full resolution (MP4)](https://github.com/li1fang/material-lab/raw/refs/heads/main/media/brick-iron-contact.mp4) · [Try the Modular Campus sample from source](Package/README.md#modular-campus) · [Download the v0.3.0 wood, ceramic and ribbon workbenches](https://github.com/li1fang/material-lab/releases/tag/v0.3.0)
+
+The footage uses the current source build. Its demo controller holds the roller at contact and limits further travel as pressure builds. The v0.4.0 download uses the earlier contact timing.
 
 **Play Modular Campus v0.4.0.** Download the Windows ZIP, extract it and run `AI-RTS-Spectator.exe`. Press **V** for the first pass. The Unity package includes **Modular Campus** under Samples. [Windows and Unity downloads](https://github.com/li1fang/material-lab/releases/tag/v0.4.0)
 
@@ -48,7 +50,9 @@ These three procedural specimens have deliberately narrow material models. The r
 
 ## 中文试玩与开发
 
-**先看同一辆车退回来以后。** 同一段围墙、同一条车路，换一种材料，留下的损伤就不一样。砖墙掉了 42 块，缺口留在受压的一跨。换成铁栅栏，一端落下，另一端还牵在柱子上。换个位置点共用角柱，两侧砖墙各掉 4 块，远处的一跨保持完整。[砖墙与铁栅栏实录](https://github.com/li1fang/material-lab/raw/refs/heads/main/media/brick-iron.mp4) · [退车后的并排近照](media/boundary-after.jpg)
+**先看车头碰墙的一瞬间。** 滚轮抵住墙面，车身顿一下，砖块错开，车才向前再挪一点。图中这段阻力感由样例控制器限制滚轮行程来表现。首图取自当前源码，v0.4.0 下载包保留了较早的接触时序。
+
+同一段围墙、同一条车路，换一种材料，留下的损伤就不一样。砖墙掉了 42 块，缺口留在受压的一跨。换成铁栅栏，一端落下，另一端还牵在柱子上。换个位置点共用角柱，两侧砖墙各掉 4 块，远处的一跨保持完整。[砖墙与铁栅栏实录](https://github.com/li1fang/material-lab/raw/refs/heads/main/media/brick-iron-contact.mp4) · [退车后的并排近照](media/boundary-after.jpg)
 
 **停车楼把支撑关系单独展现出来。** 把 2×3 开间扩成 3×5，用同一组输入，两次都能看到一块楼面先掉，邻跨随后失去支撑。大停车楼最后有两块落下、三块倾斜、十块水平。你可以倒回第一块下落前，亲手重放。楼面的失撑和挂靠由离散连接规则驱动。[停车楼实录](https://github.com/li1fang/material-lab/raw/refs/heads/main/media/parking.mp4) · [同机位前后图](media/parking-before-after.jpg) · [实测数据](evidence/modular-campus.json)
 
