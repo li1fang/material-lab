@@ -1,5 +1,5 @@
 param(
-    [ValidateSet('Prepare','Build','Test','Verify')][string]$Action = 'Build',
+    [ValidateSet('Prepare','Build','Campus','Test','Verify')][string]$Action = 'Build',
     [string]$Output = (Join-Path $PSScriptRoot 'Output')
 )
 $ErrorActionPreference = 'Stop'
@@ -40,6 +40,9 @@ if (Test-Path "$PSScriptRoot/Package/Samples~/BranchLab") {
 if (Test-Path "$PSScriptRoot/Host/BranchBuild.cs") {
     Copy-Item "$PSScriptRoot/Host/BranchBuild.cs" "$project/Assets/Editor/" -Force
 }
+$campus = Join-Path $project 'Assets/ModularCampus'
+New-Item -ItemType Directory -Force $campus | Out-Null
+Copy-Item "$PSScriptRoot/Package/Samples~/ModularCampus/*" $campus -Recurse -Force
 Copy-Item "$PSScriptRoot/Host/manifest.json" "$project/Packages/" -Force
 Copy-Item "$PSScriptRoot/Host/ProjectVersion.txt" "$project/ProjectSettings/" -Force
 if (Test-Path "$PSScriptRoot/Host/packages-lock.json") {
@@ -56,7 +59,7 @@ if ($Action -eq 'Test') {
     }
     return
 }
-$method = if ($Action -eq 'Build') { 'BranchBuild.Windows' } else { 'BranchBuild.Verify' }
+$method = if ($Action -eq 'Campus') { 'BranchBuild.Campus' } elseif ($Action -eq 'Build') { 'BranchBuild.Windows' } else { 'BranchBuild.Verify' }
 unity run $project --no-tail --log-file "$work/$Action.log" -- -nographics -executeMethod $method
 if ($LASTEXITCODE -ne 0 -or !(Select-String -SimpleMatch "MATERIAL_LAB_OK $Action" "$work/$Action.log" -Quiet)) {
     throw "Unity $Action failed. See $work/$Action.log"

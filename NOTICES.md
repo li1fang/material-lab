@@ -1,4 +1,6 @@
-# Material Lab 0.3.0 notices
+# Material Lab notices
+
+The Modular Campus sample generates the maintenance crawler, brickwork, rails, parking decks, paint and ground from original code. Its screenshots and benchmark record come from the standalone Unity player.
 
 The Material Destruction contributors provide the original C# implementation, shaders, procedural mesh generators and Unity sample scenes under the MIT license in `Package/LICENSE.md`. The README screenshot was captured from the Windows sample. The example JSON contains numerical grip measurements recorded from the same workbench.
 

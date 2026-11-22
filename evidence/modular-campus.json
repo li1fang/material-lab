@@ -1,0 +1,42 @@
+{
+    "unity": "7000.0.0a20",
+    "device": "NVIDIA GeForce RTX 3070 Ti Laptop GPU",
+    "cpu": "AMD Ryzen 9 6900HS with Radeon Graphics ",
+    "width": 1100,
+    "height": 680,
+    "brickPieces": 42,
+    "cornerFront": 4,
+    "cornerSide": 4,
+    "untouched": 0,
+    "metalBend": 1.0,
+    "contactDepth": 1.0,
+    "lastSpan": 1.3999996185302734,
+    "attachedAfterReturn": true,
+    "replayMatches": true,
+    "parking": [
+        {
+            "caseName": "2x3",
+            "spans": 6,
+            "posts": 12,
+            "fallen": 2,
+            "tilted": 2,
+            "propagated": 1,
+            "constructMs": 10.0884,
+            "p95Ms": 16.8233,
+            "peakMs": 16.9264,
+            "frames": 180
+        },
+        {
+            "caseName": "3x5",
+            "spans": 15,
+            "posts": 24,
+            "fallen": 2,
+            "tilted": 3,
+            "propagated": 1,
+            "constructMs": 5.89,
+            "p95Ms": 16.8366,
+            "peakMs": 17.007,
+            "frames": 180
+        }
+    ]
+}

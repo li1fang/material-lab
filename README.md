@@ -10,6 +10,12 @@ Grab a striped ribbon, tear it halfway, let go, then pick it up again. The loose
 
 ### From the workbench to a campus
 
+**Modular Campus · development preview.** Import the second sample in Unity Package Manager and open `Campus.unity`. Drive the maintenance crawler against a brick panel, swap in iron and repeat the same stroke. Extend the L-shaped boundary to see how a short end bay meets the shared corner post. The open parking deck uses the same post-and-span layout and grows from six to fifteen bays by changing its grid dimensions. On Windows, build the separate player with `./Run.ps1 -Action Campus`. [Sample and editable layout](Package/Samples~/ModularCampus) · [Build and controls](Package/README.md#modular-campus)
+
+| Iron panel after the crawler reverses | Fifteen-bay deck after a local release |
+| --- | --- |
+| ![One end of the iron panel still attached](media/campus-fence.jpg) | ![Two lowered deck sections with the far bays standing](media/campus-parking.jpg) |
+
 | What you can try in v0.3.0 | How we would use that behaviour |
 | --- | --- |
 | Bend the green branch until some fibres give way. The ends can still be connected. | A tracked toy vehicle could push a campus fence rail flat while one end stays attached to its post. A window frame could bend and keep its shape after the impact. |
@@ -18,7 +24,7 @@ Grab a striped ribbon, tear it halfway, let go, then pick it up again. The loose
 
 **A measured example.** A separate AI-RTS Windows prototype tested one equipment-hall bay with a 64-piece infill wall and an independently supported gallery. In one recorded run, an opening with 18 pieces released admitted the character gauge and stopped the tracked vehicle. Widening that same opening released 53 pieces and let the vehicle through. Removing the entire infill left the gallery in place. In the support test the gallery tilted, then dropped locally while the neighbouring bay stayed put. The shape and location of the gap mattered. The piece counts describe this particular run. [Player measurements and input events](evidence/equipment-hall-bay.json)
 
-**What AI contributes.** Two OpenAI-generated parts sheets guided the appearance of the equipment hall and repair shed. The prototype built their geometry from dimensions and configuration. A coding agent could change a part, build with Unity CLI, replay the same inputs and check which opening actually admitted the vehicle. The finer wall experiment reused the existing art and ran locally. We want to measure how much of that workflow transfers to the next building. Fences, composite windows and collapse spreading across several bays are design examples for that work.
+**What AI contributes.** Two OpenAI-generated parts sheets guided the equipment hall and repair shed. A coding agent could change a part, build with Unity CLI and replay the same passage test. The independent campus sample extends that workflow to a configurable boundary and parking grid. Both parking sizes use one generator and one scripted comparison. The proof records the time to construct the scene and the frame intervals during the test. [Windows player results](evidence/modular-campus.json)
 
 ### Play or build
 
@@ -42,11 +48,13 @@ These three procedural specimens have deliberately narrow material models. The r
 
 ## 中文试玩与开发
 
+开发预览新增独立的 **Modular Campus** 样例。在同一个墙位按 V，让履带车前压、退回；换上铁栅栏再压一次，比对砖块的缺口与金属杆保留的弯折。停车楼可以在两种规模间切换，并倒回比较相同的局部下落。已发布的 v0.3.0 试玩提供下述三种材料实验。[校园样例操作与构建](Package/README.md#modular-campus)
+
 我们想用这套工作台建一座可破坏的游戏校园。设计一扇窗时，可以给金属框和玻璃指定不同的反应：窗框像鲜枝一样弯折后仍连着，玻璃像瓷盘一样局部崩落，碎片能和缺口对上。换成校园栅栏，设想中的效果是履带车压过后，栏杆倒伏，一端仍挂在立柱上。布带则演示了怎样记住损伤：撕到一半松手，下一次还能沿着旧破口继续。**v0.3.0 里能亲手试的是鲜枝、瓷盘和布带。** [Windows 试玩与 Unity 包](https://github.com/li1fang/material-lab/releases/tag/v0.3.0)
 
 **建筑已经验证到哪一步？** 在独立的 AI-RTS 器材库试玩中，一个开间的填充墙分成 64 块。在一次实测中，脱落 18 块形成的洞能过人，猫猫车停在洞口；沿洞边继续扩大到脱落 53 块，车也能过。整面填充墙卸掉，二层外廊仍然水平。单独改变外廊支撑，才看到这一段先歪挂、后落下，隔壁开间保持原位。记录保留了每一步缺失的墙块编号、人物与原车的通行结果，以及两段楼面的坐标。[实机记录](evidence/equipment-hall-bay.json)
 
-**AI 怎样参与建造？** 器材库和维修棚先用 OpenAI 生成分件参考图，再按尺寸和配置搭建。开发者或 AI 可以改一处构件，用 Unity CLI 构建，回放同一组输入，检查缺口是否真的能过车。细化墙体时沿用了已有美术。下一步值得试的是，这套做法能否低成本地复用到栅栏、门窗，乃至多个开间，让坠落的楼面遇到仍能承托它的构件时停下来。
+**AI 怎样参与建造？** 器材库和维修棚用 OpenAI 分件参考图定下外形；校园样例的围墙、栅栏和停车楼由代码生成。开发者或 AI 改墙线长度或停车楼行列，Unity CLI 可重建样例，并用同一组输入检查扩建前后的结果。停车楼的两种规模共用生成器和事件规则。[实机复验数据](evidence/modular-campus.json)
 
 v0.3 从条纹织带开始。双击 [Open-Ribbon.cmd](Open-Ribbon.cmd)，抓住右上角向上拖，或抓右下角向下拖。松手后可以从同一端再抓，比较两次之间的裂口长度。「换新布带」开始新一轮。最新操作写到 `Application.persistentDataPath/ribbon-take.json`，也可以传入 `--ribbon-log <绝对路径>`。将环境变量 `MATERIAL_LAB_RIBBON_TAKE` 指向记录，再运行 Verify，即可核对每一次松手时断开的纱束数。
 

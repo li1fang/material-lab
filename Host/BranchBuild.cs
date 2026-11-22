@@ -55,6 +55,10 @@ public static class BranchBuild
         Debug.Log("CERAMIC_PROOF_OK");
     }
     public static void Windows()
+        => Build(false);
+    public static void Campus()
+        => Build(true);
+    static void Build(bool campus)
     {
         const string path="Assets/BranchPipeline.asset";
         var pipeline=AssetDatabase.LoadAssetAtPath<UniversalRenderPipelineAsset>(path);
@@ -69,17 +73,18 @@ public static class BranchBuild
         }
         GraphicsSettings.defaultRenderPipeline=pipeline;
         QualitySettings.renderPipeline=pipeline;
-        PlayerSettings.productName="Material Lab";
+        PlayerSettings.productName=campus?"Material Lab - Modular Campus":"Material Lab";
         PlayerSettings.defaultScreenWidth=1100;
         PlayerSettings.defaultScreenHeight=680;
         PlayerSettings.fullScreenMode=FullScreenMode.Windowed;
         AssetDatabase.SaveAssets();
-        Directory.CreateDirectory(Path.Combine(Output,"Windows"));
+        string folder=campus?"CampusWindows":"Windows";
+        Directory.CreateDirectory(Path.Combine(Output,folder));
         var report=BuildPipeline.BuildPlayer(new BuildPlayerOptions {
-            scenes=new[]{"Assets/BranchLab/RibbonWorkbench.unity","Assets/BranchLab/Workbench.unity"},
-            locationPathName=Path.Combine(Output,"Windows","AI-RTS-Spectator.exe"),
+            scenes=campus?new[]{"Assets/ModularCampus/Campus.unity"}:new[]{"Assets/BranchLab/RibbonWorkbench.unity","Assets/BranchLab/Workbench.unity"},
+            locationPathName=Path.Combine(Output,folder,"AI-RTS-Spectator.exe"),
             target=BuildTarget.StandaloneWindows64,options=BuildOptions.None });
         if(report.summary.result!=BuildResult.Succeeded) throw new Exception(report.summary.result.ToString());
-        Debug.Log("MATERIAL_LAB_OK Build");
+        Debug.Log(campus?"MATERIAL_LAB_OK Campus":"MATERIAL_LAB_OK Build");
     }
 }

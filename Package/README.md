@@ -1,4 +1,19 @@
-# Material Destruction · 条纹织带、青釉陶碟与鲜枝
+# Material Destruction · Unity 材料工作台
+
+## Modular Campus
+
+从当前开发源码安装时，在 Unity Package Manager 选择 **Install package from git URL**，填写 `https://github.com/li1fang/material-lab.git?path=/Package`。也可以用 **Install package from tarball** 选择本地构建的 `.tgz`。
+
+在 Unity 7 URP 工程的 Package Manager 导入 **Modular Campus** 样例，打开样例根目录的 `Campus.unity`。输入使用 Unity 的 Input Manager，工程可选 Input Manager 或 Both。本样例的砌块、金属栅栏、停车楼和履带试车均由代码绘制，运行时无需模型服务。
+
+- **围墙**默认两边长 9 和 6 个场景单位，目标柱距 3。点某一跨或点「选下一跨」定位操作。V 驱动车辆按固定路线前压和退回。「换铁栅栏」从完好状态开始同位置对照。点墙面可拆局部砖片，点共用角柱观察与两侧的连接。
+- **延长墙线**把第一段改成 10.4 单位，末跨为 1.4。砖排、顶砖、栏杆和碰撞体按跨宽生成。样例里的 `Resources/campus-dimensions.json` 控制长度、柱距和停车楼行列。
+- **停车楼**含地面与架空停车层。点击柱体可改变支撑状态，或用「运行连续失撑对照」比较两个规模下的同一组游戏状态。共边楼面可以挂靠；失去相邻支撑后，后续楼面会延迟释放。此处使用离散连接规则和程序化姿态。
+- **回看**用空格重放，Z 撤回，R 复位，拖动底部时间线回看。右键拖动旋转机位，滚轮缩放。
+
+从仓库根目录运行 `./Run.ps1 -Action Campus` 构建 Windows 试玩，程序在 `Output/CampusWindows/AI-RTS-Spectator.exe`。带 `--campus-proof --output <目录>` 可复验默认配置并记录帧时。运行 `python package_release.py --campus` 会生成校园 Windows ZIP、源码 ZIP 与 UPM 安装包。
+
+## Material Workbench
 
 导入 Material Workbench 样例后，打开 `RibbonWorkbench.unity` 即可亲手撕布。左端夹住，右端有预开口。抓住上、下任一布角向外拖动，裂口沿织向逐束推进。停手、卸载和再次抓取都会保留已撕开的长度。近景跟随裂尖，可以观察条纹回落和断边的毛纱。目前的样件模拟一条沿织向发展的裂口。使用位移驱动的纱束阈值，未做实物力学校准。
 
