@@ -23,17 +23,39 @@ namespace MaterialDestruction.Campus
             data.width=Screen.width;data.height=Screen.height;StartCoroutine(Guard());
         }
         IEnumerator Guard(){
-            var stack=new Stack<IEnumerator>();stack.Push(Verify());
+            bool film=Array.IndexOf(Environment.GetCommandLineArgs(),"--campus-film")>=0;
+            var stack=new Stack<IEnumerator>();stack.Push(film?Film():Verify());
             while(stack.Count>0){object v;
                 try{if(!stack.Peek().MoveNext()){stack.Pop();continue;}v=stack.Peek().Current;}
                 catch(Exception e){File.WriteAllText(Path.Combine(output,"failure.txt"),e.ToString());UnityEngine.Debug.LogException(e);Application.Quit(2);yield break;}
                 if(v is IEnumerator inner)stack.Push(inner);else yield return v;
             }
-            File.WriteAllText(Path.Combine(output,"results.json"),JsonUtility.ToJson(data,true));
+            if(!film)File.WriteAllText(Path.Combine(output,"results.json"),JsonUtility.ToJson(data,true));
             UnityEngine.Debug.Log("MODULAR_PROOF_OK");Application.Quit();
         }
         static void Check(bool ok,string s){if(!ok)throw new InvalidDataException(s);}
         void Advance(int ticks){for(int j=0;j<ticks;j++)w.Step();}
+        IEnumerator Film(){
+            yield return new WaitForSecondsRealtime(3.2f);
+            w.filmView=true;
+            foreach(string shot in new[]{"brick","iron","parking"}){
+                bool deck=shot=="parking";
+                w.Configure(deck,deck,false,shot=="iron");
+                var cam=Camera.main;
+                var focus=deck?new Vector3(.6f,1.35f,0):w.walls[1].root.TransformPoint(new Vector3(0,.94f,-.85f));
+                var angle=Quaternion.Euler(deck?24:23,deck?-28:-32,0);
+                cam.orthographicSize=deck?9.5f:2.8f;
+                cam.transform.SetPositionAndRotation(focus-angle*Vector3.forward*47,angle);
+                Directory.CreateDirectory(Path.Combine(output,shot));
+                if(!deck){w.Act("drive",1);Advance(26);}
+                for(int i=0;i<120;i++){
+                    if(deck && i==25)w.Act("sequence");
+                    yield return Photo(Path.Combine(shot,i.ToString("D3")));
+                    Advance(2);
+                }
+                Check(deck?w.parking.Fallen==2:shot=="iron"?w.walls[1].Released&&w.walls[1].RetainedEndError<.015f:w.walls[1].Missing==42,"film end state: "+shot);
+            }
+        }
         IEnumerator Photo(string label){
             yield return new WaitForEndOfFrame();
             var tex=ScreenCapture.CaptureScreenshotAsTexture();File.WriteAllBytes(Path.Combine(output,label+".jpg"),tex.EncodeToJPG(92));Destroy(tex);

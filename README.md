@@ -1,30 +1,28 @@
 # Material Lab · 材料破坏工作台
 
-Material Lab explores how to build game scenes that remember where they broke. Our aim is to let an artist or a coding agent describe an object's materials and connections, then play back the result in Unity. In a campus equipment hall, that means a hole can grow wide enough for a person while the wall around it still holds together and the gallery above stays level.
+Drive a maintenance crawler into a brick wall. Reverse, swap the same span for iron, and repeat. The bricks leave a hole. The iron bends down and stays attached to one post. Both runs below use the same vehicle, stroke and camera in the Windows player.
 
-**Playable today.** The first release contains three small material experiments. [Download the v0.3.0 Windows demo or Unity package](https://github.com/li1fang/material-lab/releases/tag/v0.3.0).
+![Two consecutive runs of the same crawler pressing and reversing, first against brick and then against iron](media/brick-iron.gif)
 
-Grab a striped ribbon, tear it halfway, let go, then pick it up again. The loose edges relax and the tear stays where you left it. The other two specimens let you bend a green branch until the fibres separate and chip a glazed saucer by dropping a weight on either rim.
+[Watch the 8-second comparison in full resolution (MP4)](https://github.com/li1fang/material-lab/raw/refs/heads/main/media/brick-iron.mp4) · [Try the Modular Campus sample from source](Package/README.md#modular-campus) · [Download the v0.3.0 wood, ceramic and ribbon workbenches](https://github.com/li1fang/material-lab/releases/tag/v0.3.0)
+
+### What stays connected?
+
+**Boundary wall.** The recorded stroke dislodged 42 brick pieces from the selected span. The same stroke against iron released one end. The other end remained attached after the crawler backed away, including on replay. Try a different connection by clicking the shared corner post. In the brick test, four pieces came away on each adjoining side and the distant control span lost none. [Compare the end states](media/boundary-after.jpg) · [Original fence screenshot](media/campus-fence.jpg) · [Player measurements](evidence/modular-campus.json)
+
+**Parking deck.** One generator assembles both the six-bay and fifteen-bay layouts. Run the same support-loss sequence on either one and watch the first slab drop, then its neighbour. On the larger deck, two slabs ended down, three tilted and ten stayed level. These are discrete game rules for connections between slabs and posts. [Watch the 4-second sequence (MP4)](https://github.com/li1fang/material-lab/raw/refs/heads/main/media/parking.mp4) · [Original parking screenshot](media/campus-parking.jpg)
+
+![The same fifteen-bay parking deck before and after the local support-loss sequence](media/parking-before-after.jpg)
+
+**Change the layout yourself.** Edit the wall lengths, target post spacing or parking grid in the [dimension file](Package/Samples~/ModularCampus/Resources/campus-dimensions.json). A wall extended from 9 to 10.4 units acquires a 1.4-unit end span, complete with mesh and collider. A developer or coding agent can rebuild the player and repeat the same checks. Geometry is generated locally. [Build and controls](Package/README.md#modular-campus) · [Capture instructions](media/README.md)
+
+**Related AI-RTS experiment.** A separate equipment-hall prototype used OpenAI-generated parts references and a 64-piece infill wall. In the recorded run, the character fitted through the opening at 18 missing pieces. The tracked vehicle fitted after the same opening widened to 53. Removing all the infill left the gallery level. Releasing its supports tilted and then lowered one gallery section. Those counts describe the recorded openings. [Input events and player measurements](evidence/equipment-hall-bay.json)
+
+### Three materials you can play with in v0.3.0
+
+Bend the green branch and watch the remaining fibres hold the tip. Chip either rim of the glazed saucer and look for the matching edge on the fragment. Tear the striped ribbon halfway, release it, then grab it again. The loose edges relax and the next pull continues from the existing tear.
 
 ![Striped ribbon held in the clamp, with a close-up of the starter cut](media/ribbon-workbench.jpg)
-
-### From the workbench to a campus
-
-**Modular Campus · development preview.** Import the second sample in Unity Package Manager and open `Campus.unity`. Drive the maintenance crawler against a brick panel, swap in iron and repeat the same stroke. Extend the L-shaped boundary to see how a short end bay meets the shared corner post. The open parking deck uses the same post-and-span layout and grows from six to fifteen bays by changing its grid dimensions. On Windows, build the separate player with `./Run.ps1 -Action Campus`. [Sample and editable layout](Package/Samples~/ModularCampus) · [Build and controls](Package/README.md#modular-campus)
-
-| Iron panel after the crawler reverses | Fifteen-bay deck after a local release |
-| --- | --- |
-| ![One end of the iron panel still attached](media/campus-fence.jpg) | ![Two lowered deck sections with the far bays standing](media/campus-parking.jpg) |
-
-| What you can try in v0.3.0 | How we would use that behaviour |
-| --- | --- |
-| Bend the green branch until some fibres give way. The ends can still be connected. | A tracked toy vehicle could push a campus fence rail flat while one end stays attached to its post. A window frame could bend and keep its shape after the impact. |
-| Chip the left or right rim of the saucer. The missing edge and the loose chip fit together. | Glass could leave a local gap inside that bent frame. A plastered wall could lose a patch and expose the material behind its painted face. |
-| Tear the ribbon halfway, release it and pull again. The second tear starts from the first. | A cracked support could hold a gallery in a tilted position. A later event could release the next connection and let one section settle against a surviving support. |
-
-**A measured example.** A separate AI-RTS Windows prototype tested one equipment-hall bay with a 64-piece infill wall and an independently supported gallery. In one recorded run, an opening with 18 pieces released admitted the character gauge and stopped the tracked vehicle. Widening that same opening released 53 pieces and let the vehicle through. Removing the entire infill left the gallery in place. In the support test the gallery tilted, then dropped locally while the neighbouring bay stayed put. The shape and location of the gap mattered. The piece counts describe this particular run. [Player measurements and input events](evidence/equipment-hall-bay.json)
-
-**What AI contributes.** Two OpenAI-generated parts sheets guided the equipment hall and repair shed. A coding agent could change a part, build with Unity CLI and replay the same passage test. The independent campus sample extends that workflow to a configurable boundary and parking grid. Both parking sizes use one generator and one scripted comparison. The proof records the time to construct the scene and the frame intervals during the test. [Windows player results](evidence/modular-campus.json)
 
 ### Play or build
 
@@ -48,13 +46,13 @@ These three procedural specimens have deliberately narrow material models. The r
 
 ## 中文试玩与开发
 
-开发预览新增独立的 **Modular Campus** 样例。在同一个墙位按 V，让履带车前压、退回；换上铁栅栏再压一次，比对砖块的缺口与金属杆保留的弯折。停车楼可以在两种规模间切换，并倒回比较相同的局部下落。已发布的 v0.3.0 试玩提供下述三种材料实验。[校园样例操作与构建](Package/README.md#modular-campus)
+**先看同一辆车退回来以后。** 同一段围墙、同一条车路，换一种材料，留下的损伤就不一样。砖墙掉了 42 块，缺口留在受压的一跨。换成铁栅栏，一端落下，另一端还牵在柱子上。换个位置点共用角柱，两侧砖墙各掉 4 块，远处的一跨保持完整。[砖墙与铁栅栏实录](https://github.com/li1fang/material-lab/raw/refs/heads/main/media/brick-iron.mp4) · [退车后的并排近照](media/boundary-after.jpg)
 
-我们想用这套工作台建一座可破坏的游戏校园。设计一扇窗时，可以给金属框和玻璃指定不同的反应：窗框像鲜枝一样弯折后仍连着，玻璃像瓷盘一样局部崩落，碎片能和缺口对上。换成校园栅栏，设想中的效果是履带车压过后，栏杆倒伏，一端仍挂在立柱上。布带则演示了怎样记住损伤：撕到一半松手，下一次还能沿着旧破口继续。**v0.3.0 里能亲手试的是鲜枝、瓷盘和布带。** [Windows 试玩与 Unity 包](https://github.com/li1fang/material-lab/releases/tag/v0.3.0)
+**停车楼把支撑关系单独展现出来。** 把 2×3 开间扩成 3×5，用同一组输入，两次都能看到一块楼面先掉，邻跨随后失去支撑。大停车楼最后有两块落下、三块倾斜、十块水平。你可以倒回第一块下落前，亲手重放。楼面的失撑和挂靠由离散连接规则驱动。[停车楼实录](https://github.com/li1fang/material-lab/raw/refs/heads/main/media/parking.mp4) · [同机位前后图](media/parking-before-after.jpg) · [实测数据](evidence/modular-campus.json)
 
-**建筑已经验证到哪一步？** 在独立的 AI-RTS 器材库试玩中，一个开间的填充墙分成 64 块。在一次实测中，脱落 18 块形成的洞能过人，猫猫车停在洞口；沿洞边继续扩大到脱落 53 块，车也能过。整面填充墙卸掉，二层外廊仍然水平。单独改变外廊支撑，才看到这一段先歪挂、后落下，隔壁开间保持原位。记录保留了每一步缺失的墙块编号、人物与原车的通行结果，以及两段楼面的坐标。[实机记录](evidence/equipment-hall-bay.json)
+**从源码试玩校园。** 导入 Modular Campus，打开 `Campus.unity`。选中一跨按 V，等履带车退回后换铁栅栏，再按一次 V。在停车楼选择「运行连续失撑对照」可以复现视频。围墙长度、柱距、车库行列共用一份可编辑配置，开发者或 AI 都可以改尺寸、构建、重放。现成的 v0.3.0 Windows 下载和 Unity 包包含鲜枝、陶碟、布带三个工作台。[校园构建与操作](Package/README.md#modular-campus) · [v0.3.0 下载](https://github.com/li1fang/material-lab/releases/tag/v0.3.0)
 
-**AI 怎样参与建造？** 器材库和维修棚用 OpenAI 分件参考图定下外形；校园样例的围墙、栅栏和停车楼由代码生成。开发者或 AI 改墙线长度或停车楼行列，Unity CLI 可重建样例，并用同一组输入检查扩建前后的结果。停车楼的两种规模共用生成器和事件规则。[实机复验数据](evidence/modular-campus.json)
+独立的 AI-RTS 器材库还验证了洞口形状对通行的影响。一次记录中，同一个洞从脱落 18 块扩大到 53 块，先能过人，再能过车。整面填充墙卸掉，二层外廊仍然水平。这样的记录可以用来检查游戏里通行和支撑各自发生在何时。[器材库实测记录](evidence/equipment-hall-bay.json)
 
 v0.3 从条纹织带开始。双击 [Open-Ribbon.cmd](Open-Ribbon.cmd)，抓住右上角向上拖，或抓右下角向下拖。松手后可以从同一端再抓，比较两次之间的裂口长度。「换新布带」开始新一轮。最新操作写到 `Application.persistentDataPath/ribbon-take.json`，也可以传入 `--ribbon-log <绝对路径>`。将环境变量 `MATERIAL_LAB_RIBBON_TAKE` 指向记录，再运行 Verify，即可核对每一次松手时断开的纱束数。
 

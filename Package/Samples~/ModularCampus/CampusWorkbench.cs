@@ -174,6 +174,7 @@ namespace MaterialDestruction.Campus
             Label(new Rect(x+8,y,width-8,31),label,14,active,active?"FFFFFF":"244C4E");return GUI.Button(r,GUIContent.none,GUIStyle.none);
         }
         void OnGUI(){
+            if(filmView)return;
             if(layout==null)return;float s=UiScale,w=Screen.width/s,h=Screen.height/s;GUI.matrix=Matrix4x4.Scale(new Vector3(s,s,1));
             Fill(new Rect(16,18,220,399),"F6F2E7F6");Label(new Rect(29,27,190,23),"MATERIAL LAB    /    CAMPUS",12,true,"508079");
             Label(new Rect(27,55,202,36),garage?"敞开停车楼":"校园转角围墙",25,true);
@@ -205,5 +206,6 @@ namespace MaterialDestruction.Campus
             Label(new Rect(w*.29f+231,h-53,w*.49f,31),garage?"柱、梁与楼面共用同一张连接图":walls[selected].metal?"观察横杆弯曲、松脱与退车后的残余形状":"点砖面可打开局部缺口");
         }
         void OnDestroy(){foreach(var wall in walls)wall.Dispose();kit?.Dispose();}
+        internal bool filmView;
     }
 }
