@@ -4,11 +4,11 @@ Watch the front roller as it meets the wall. The crawler pauses against the bric
 
 ![Two consecutive runs of the same crawler pressing and reversing, first against brick and then against iron](media/brick-iron-contact.gif)
 
-[Watch the 8-second comparison in full resolution (MP4)](https://github.com/li1fang/material-lab/raw/refs/heads/main/media/brick-iron-contact.mp4) · [Try the Modular Campus sample from source](Package/README.md#modular-campus) · [Download the v0.3.0 wood, ceramic and ribbon workbenches](https://github.com/li1fang/material-lab/releases/tag/v0.3.0)
+[Download Modular Campus v0.4.1 for Windows or Unity](https://github.com/li1fang/material-lab/releases/tag/v0.4.1) · [Watch the 8-second comparison in full resolution (MP4)](https://github.com/li1fang/material-lab/raw/refs/heads/main/media/brick-iron-contact.mp4) · [Try the Modular Campus sample from source](Package/README.md#modular-campus)
 
-The footage uses the current source build. Its demo controller holds the roller at contact and limits further travel as pressure builds. The v0.4.0 download uses the earlier contact timing.
+In v0.4.1 the demo controller holds the roller at contact and limits further travel as pressure builds. Press **V** in the Windows demo to reproduce the stroke shown above.
 
-**Play Modular Campus v0.4.0.** Download the Windows ZIP, extract it and run `AI-RTS-Spectator.exe`. Press **V** for the first pass. The Unity package includes **Modular Campus** under Samples. [Windows and Unity downloads](https://github.com/li1fang/material-lab/releases/tag/v0.4.0)
+**Play Modular Campus v0.4.1.** Download the Windows ZIP, extract it and run `AI-RTS-Spectator.exe`. Press **V** for the first pass. The Unity package includes **Modular Campus** under Samples. [Windows and Unity downloads](https://github.com/li1fang/material-lab/releases/tag/v0.4.1)
 
 ### What stays connected?
 
@@ -23,6 +23,8 @@ The footage uses the current source build. Its demo controller holds the roller 
 **Related AI-RTS experiment.** A separate equipment-hall prototype used OpenAI-generated parts references and a 64-piece infill wall. In the recorded run, the character fitted through the opening at 18 missing pieces. The tracked vehicle fitted after the same opening widened to 53. Removing all the infill left the gallery level. Releasing its supports tilted and then lowered one gallery section. Those counts describe the recorded openings. [Input events and player measurements](evidence/equipment-hall-bay.json)
 
 ### Three materials you can play with in v0.3.0
+
+[Download the wood, ceramic and ribbon workbenches](https://github.com/li1fang/material-lab/releases/tag/v0.3.0)
 
 Bend the green branch and watch the remaining fibres hold the tip. Chip either rim of the glazed saucer and look for the matching edge on the fragment. Tear the striped ribbon halfway, release it, then grab it again. The loose edges relax and the next pull continues from the existing tear.
 
@@ -50,13 +52,13 @@ These three procedural specimens have deliberately narrow material models. The r
 
 ## 中文试玩与开发
 
-**先看车头碰墙的一瞬间。** 滚轮抵住墙面，车身顿一下，砖块错开，车才向前再挪一点。图中这段阻力感由样例控制器限制滚轮行程来表现。首图取自当前源码，v0.4.0 下载包保留了较早的接触时序。
+**先看车头碰墙的一瞬间。** 滚轮抵住墙面，车身顿一下，砖块错开，车才向前再挪一点。图中这段阻力感由样例控制器限制滚轮行程来表现。在 v0.4.1 试玩中按 **V** 就能重现首图里的推进过程。
 
 同一段围墙、同一条车路，换一种材料，留下的损伤就不一样。砖墙掉了 42 块，缺口留在受压的一跨。换成铁栅栏，一端落下，另一端还牵在柱子上。换个位置点共用角柱，两侧砖墙各掉 4 块，远处的一跨保持完整。[砖墙与铁栅栏实录](https://github.com/li1fang/material-lab/raw/refs/heads/main/media/brick-iron-contact.mp4) · [退车后的并排近照](media/boundary-after.jpg)
 
 **停车楼把支撑关系单独展现出来。** 把 2×3 开间扩成 3×5，用同一组输入，两次都能看到一块楼面先掉，邻跨随后失去支撑。大停车楼最后有两块落下、三块倾斜、十块水平。你可以倒回第一块下落前，亲手重放。楼面的失撑和挂靠由离散连接规则驱动。[停车楼实录](https://github.com/li1fang/material-lab/raw/refs/heads/main/media/parking.mp4) · [同机位前后图](media/parking-before-after.jpg) · [实测数据](evidence/modular-campus.json)
 
-**下载校园试玩 v0.4.0。** 完整解压 Windows ZIP，运行 `AI-RTS-Spectator.exe`，按 **V** 就能压第一面墙。Unity 用户可安装同版 TGZ，在 Samples 中导入 Modular Campus。[Windows 试玩与 Unity 包](https://github.com/li1fang/material-lab/releases/tag/v0.4.0)
+**下载校园试玩 v0.4.1。** 完整解压 Windows ZIP，运行 `AI-RTS-Spectator.exe`，按 **V** 就能压第一面墙。Unity 用户可安装同版 TGZ，在 Samples 中导入 Modular Campus。[Windows 试玩与 Unity 包](https://github.com/li1fang/material-lab/releases/tag/v0.4.1)
 
 **从源码试玩校园。** 导入 Modular Campus，打开 `Campus.unity`。选中一跨按 V，等履带车退回后换铁栅栏，再按一次 V。在停车楼选择「运行连续失撑对照」可以复现视频。围墙长度、柱距、车库行列共用一份可编辑配置，开发者或 AI 都可以改尺寸、构建、重放。现成的 v0.3.0 Windows 下载和 Unity 包包含鲜枝、陶碟、布带三个工作台。[校园构建与操作](Package/README.md#modular-campus) · [v0.3.0 下载](https://github.com/li1fang/material-lab/releases/tag/v0.3.0)
 
