@@ -9,3 +9,5 @@ The host resolves Unity packages using `Host/manifest.json` and `Host/packages-l
 The sample requests a locally available UI font at runtime. All three specimens and their surface patterns are generated from code. The wood model's research reference is listed in `Package/README.md`.
 
 The Windows ZIP includes the .NET Foundation license distributed with the Unity Editor's x64 CoreCLR runtime and license and notice files found at the top level of the resolved Unity packages. These files are kept under `Notices/` in the ZIP.
+
+The Gemini toy vehicle (front.fbx, rear.fbx, associated material bindings and track data) is included with the rights holder's permission for redistribution as part of this Windows player and Unity package. The MIT license for the Material Lab code does not grant a separate license to these vehicle assets.

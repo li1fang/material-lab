@@ -14,6 +14,7 @@ namespace MaterialDestruction.Campus
         public readonly Transform root;
         public readonly bool metal;
         public int Missing{get;private set;}
+        internal float ReleaseTime(int index) => bricks[index].time;
         public float Bend{get;private set;}
         public bool Released=>Bend>.67f;
         public float RetainedEndError{

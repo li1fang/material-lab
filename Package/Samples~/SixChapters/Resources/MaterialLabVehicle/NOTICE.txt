@@ -1,0 +1,1 @@
+The Gemini toy vehicle (front.fbx, rear.fbx, associated material bindings and track data) is included with the rights holder's permission for redistribution as part of this Windows player and Unity package. The MIT license for the Material Lab code does not grant a separate license to these vehicle assets.

@@ -1,21 +1,30 @@
 {
   "name": "org.materiallab.destruction",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "displayName": "Material Destruction",
   "description": "Replayable material experiments and a modular campus sample with brick, rail and parking deck assemblies for URP.",
   "unity": "7000.0",
   "license": "MIT",
   "dependencies": {
     "com.unity.modules.physics": "1.0.0",
-    "com.unity.modules.jsonserialize": "1.0.0"
+    "com.unity.modules.jsonserialize": "1.0.0",
+    "com.unity.render-pipelines.universal": "17.7.0"
   },
-  "samples": [{
-    "displayName": "Material Workbench",
-    "description": "Grab, tear and release a woven ribbon. Also includes a ceramic impact bench and the original branch bending bench. Uses URP.",
-    "path": "Samples~/BranchLab"
-  }, {
-    "displayName": "Modular Campus",
-    "description": "An editable L-shaped campus boundary, bendable iron panel and open two-level parking deck. Uses URP.",
-    "path": "Samples~/ModularCampus"
-  }]
+  "samples": [
+    {
+      "displayName": "Material Workbench",
+      "description": "Grab, tear and release a woven ribbon. Also includes a ceramic impact bench and the original branch bending bench. Uses URP.",
+      "path": "Samples~/BranchLab"
+    },
+    {
+      "displayName": "Modular Campus",
+      "description": "An editable L-shaped campus boundary, bendable iron panel and open two-level parking deck. Uses URP.",
+      "path": "Samples~/ModularCampus"
+    },
+    {
+      "displayName": "Six Chapters and Grandstand",
+      "description": "Import Material Workbench and Modular Campus first. Enter Play on MaterialLabGame, then open the chapter menu for the grandstand.",
+      "path": "Samples~/SixChapters"
+    }
+  ]
 }

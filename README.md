@@ -1,5 +1,19 @@
 # Material Lab · 材料破坏工作台
 
+## Six Chapters and Grandstand · v0.5.0
+
+**六关可以用鼠标玩到底。** 从木枝上选一个受力点，到瓷盘上选落球点和高度，再抓住布条撕到一半松手。第四关换上完整的双节猫猫车，看砖面在车头前先错台、留下压痕，再打开缺口。停车楼的十五块楼板是一道拆解谜题。最后一关可以亲手剥掉柱外砖，查看柱芯和相邻两跨的连接。
+
+![The two-bay grandstand in the Windows player](media/grandstand-v050.jpg)
+
+**同一套零件能拼多大？** 从菜单打开运动场看台，点「增一跨」，再点「移动楼梯口」。留意白栏杆上的开口也跟着移动。点「85 米全长」可以比较十跨的尺寸。两层看台、共用梁柱和逐块可点的砖来自同一份配方。后排拱廊和看台前的台阶提供建筑造型。
+
+- [Download v0.5.0 for Windows or Unity](https://github.com/li1fang/material-lab/releases/tag/v0.5.0). Extract the complete Windows ZIP. Run **AI-RTS-Spectator.exe** for the six chapters, or **Open-Grandstand.cmd** for the stand.
+- [Edit and rebuild the grandstand](GRANDSTAND.md) · [Starter recipe](Package/Samples~/SixChapters/Resources/stand-two-bay.json) · [Four Windows player measurements](evidence/grandstand-v050.json) · [Six-chapter interaction checks](evidence/six-chapters-v050.json).
+- Unity installation uses **Material Workbench**, **Modular Campus**, then **Six Chapters and Grandstand** under Samples. Code and procedural geometry use the project MIT license. The bundled Gemini vehicle has a [separate redistribution notice](NOTICES.md).
+
+## Modular Campus · v0.4.1
+
 Watch the front roller as it meets the wall. The crawler pauses against the brickwork, then inches forward as the bricks shift. Swap the same span for iron and the rail bends under the roller. The bricks leave a hole. The iron bends down and stays attached to one post. Both runs below use the same vehicle, stroke and camera in the Windows player.
 
 ![Two consecutive runs of the same crawler pressing and reversing, first against brick and then against iron](media/brick-iron-contact.gif)

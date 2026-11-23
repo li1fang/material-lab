@@ -1,0 +1,95 @@
+{
+  "runs": [
+    {
+      "bays": 2,
+      "stairBay": 0,
+      "posts": 6,
+      "girders": 7,
+      "panels": 2,
+      "renderers": 1463,
+      "colliders": 1403,
+      "meters": 17.000001907348633,
+      "stairCenterX": -2.4000000953674316,
+      "deckHeight": 3.3560001850128174,
+      "frameMedianMs": 6.05929708480835,
+      "frameP95Ms": 12.124120712280273,
+      "buildMs": 201
+    },
+    {
+      "bays": 3,
+      "stairBay": 0,
+      "posts": 8,
+      "girders": 10,
+      "panels": 3,
+      "renderers": 2022,
+      "colliders": 1955,
+      "meters": 25.500001907348633,
+      "stairCenterX": -4.800000190734863,
+      "deckHeight": 3.3560001850128174,
+      "frameMedianMs": 6.059403419494629,
+      "frameP95Ms": 12.117396354675293,
+      "buildMs": 199
+    },
+    {
+      "bays": 3,
+      "stairBay": 1,
+      "posts": 8,
+      "girders": 10,
+      "panels": 3,
+      "renderers": 2022,
+      "colliders": 1955,
+      "meters": 25.500001907348633,
+      "stairCenterX": 0.0,
+      "deckHeight": 3.3560001850128174,
+      "frameMedianMs": 6.059800148010254,
+      "frameP95Ms": 6.066624164581299,
+      "buildMs": 211
+    },
+    {
+      "bays": 10,
+      "stairBay": 4,
+      "posts": 22,
+      "girders": 31,
+      "panels": 10,
+      "renderers": 5947,
+      "colliders": 5831,
+      "meters": 85.0,
+      "stairCenterX": -2.4000000953674316,
+      "deckHeight": 3.3560001850128174,
+      "frameMedianMs": 18.172399520874023,
+      "frameP95Ms": 42.42531967163086,
+      "buildMs": 623
+    }
+  ],
+  "brickPicked": true,
+  "jacketPicked": true,
+  "retainedDent": true,
+  "editor": "7000.0.0a20",
+  "renderer": "NVIDIA GeForce RTX 3070 Ti Laptop GPU",
+  "resolution": [
+    1440,
+    900
+  ],
+  "frameSample": "90 steady display intervals per recipe after ten warm-up frames. Includes display pacing and other desktop activity. No match simulation or simultaneous debris benchmark.",
+  "architectureAuthoring": {
+    "model": "gpt-6.2-astra",
+    "seconds": 243.644,
+    "usage": {
+      "input_tokens": 1347,
+      "input_tokens_details": {
+        "cache_write_tokens": 1344,
+        "cache_write_tokens_details": {
+          "ttl_12h_tokens": 0,
+          "ttl_30m_tokens": 1344
+        },
+        "cached_tokens": 0
+      },
+      "output_tokens": 15922,
+      "output_tokens_details": {
+        "reasoning_tokens": 6066
+      },
+      "total_tokens": 17269
+    },
+    "scope": "Rear arcade, staircase, terraces and two original paper figures. Edited and integrated locally."
+  }
+}

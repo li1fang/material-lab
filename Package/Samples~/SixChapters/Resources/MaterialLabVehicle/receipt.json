@@ -1,0 +1,10 @@
+{
+  "version": "gemini-game-candidate-v2-5",
+  "packet_sha256": "e49d4244287478dfba7e2171f106dce278fb66625c12f0f2f894e47a3fc42c1d",
+  "previous": null,
+  "donor": "gemini-five-seat-unity-v3",
+  "files": {
+    "front.fbx": "88d554fa955705af01925c4ecebc4bdcc61d99ab2e2832bb03189c32380c7d82",
+    "rear.fbx": "8b546c24e6406ce06c7bdec06bb7f148f43f4f88bacafb4d97693633ae25a661"
+  }
+}
